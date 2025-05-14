@@ -1,0 +1,385 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    color: lightgrey;
+}
+
+input[type=checkbox] {
+    cursor: pointer;
+}
+
+#overlays, #connecting {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+}
+
+#connecting {
+    z-index: 100;
+}
+
+#connecting-content {
+    width: 350px;
+    background-color: #fff;
+    margin: 100px auto;
+    border-radius: 15px;
+    padding: 5px 15px;
+}
+
+#title {
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 24px;
+}
+
+#nick {
+    width: 65%;
+}
+
+#skin {
+    width: 33%;
+    float: right;
+}
+
+#nick, #skin {
+    display: inline;
+}
+
+#gamemode {
+    margin-top: 5px;
+    width: 100%;
+}
+
+#helloDialog {
+    width: 400px;
+    background-color: #000;
+    border: 2px solid gold;
+    margin: 10px auto;
+    border-radius: 15px;
+    padding: 5px 15px 5px 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#leftPanel {
+    width: 350px;
+    background-color: #000;
+    border: 2px solid gold;
+    border-radius: 15px;
+    padding: 5px 15px;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 400px);
+    transform: translate(-50%, -50%);
+}
+
+#rightPanel {
+    width: 350px;
+    background-color: #000;
+    border: 2px solid gold;
+    border-radius: 15px;
+    padding: 5px 15px;
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 400px);
+    transform: translate(-50%, -50%);
+}
+
+#leftPanel h2, #rightPanel h2 {
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+#leftPanel p, #rightPanel p {
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+#rightPanel p:contains("Commands:") {
+    color: gold;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#rightPanel p:contains("/help"),
+#rightPanel p:contains("/id"),
+#rightPanel p:contains("/skin"),
+#rightPanel p:contains("/die") {
+    color: gold;
+}
+
+#chat_textbox {
+    transition: all .5s ease-in-out;
+    position: absolute;
+    z-index: 1;
+    bottom: 10px;
+    background: rgba(0, 0, 0, .2);
+    border: 0px;
+    outline: none;
+    color: #fff;
+    height: 30px;
+    text-indent: 12px;
+    left: 10px;
+    width: 300px;
+    font-family: "Ubuntu";
+}
+
+#chat_textbox:focus {
+    background: rgba(0, 0, 0, .5);
+}
+
+#footer {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+#play-btn {
+    width: 85%;
+    margin-bottom: 10px;
+}
+
+#spectate-btn {
+    width: 13%;
+    float: right;
+    top: 0;
+}
+
+#play-btn, #spectate-button {
+    display: inline;
+}
+
+#touchpad, #touchCircle, #splitBtn, #ejectBtn {
+    position: fixed;
+}
+
+#touchpad, #splitBtn, #ejectBtn {
+    z-index: 2;
+}
+
+#touchpad {
+    background: #000;
+    opacity: 0.3;
+    width: 20vw;
+    height: 20vh;
+    left: 0;
+    bottom: 0;
+}
+
+#touchCircle {
+    width: 4vw;
+    height: 4vw;
+    border-radius: 2vw;
+    background: #f00;
+    opacity: 0.3;
+    z-index: 3;
+}
+
+#splitBtn, #ejectBtn {
+    width: 8vw;
+    height: 8vw;
+    border-radius: 4vw;
+    background: #777;
+    opacity: 0.5;
+}
+
+#splitBtn {
+    right: 18vw;
+    bottom: 0;
+}
+
+#ejectBtn {
+    bottom: 18vw;
+    right: 0;
+}
+
+#playSounds:checked + #soundsVolume {
+    display: inline;
+}
+
+#soundsVolume {
+    display: none;
+    width: 100px;
+    height: 18px;
+    padding: 0;
+    vertical-align: middle;
+}
+
+#settings label {
+    margin-right: 10px;
+    user-select: none;
+}
+
+.header {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 6rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 10s infinite linear;
+}
+
+@-webkit-keyframes hue {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+    }
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+
+#adminButton, #playerButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#adminButton {
+    background-color: #FF0000;
+    color: white;
+}
+
+#playerButton {
+    background-color: #00FF00;
+    color: white;
+}
+
+.settings-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.settings-button.enabled {
+    background-color: green;
+}
+
+.settings-button:hover {
+    opacity: 0.8;
+}
+
+/* Gallery Styles */
+#gallery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1000;
+    display: none;
+    overflow-y: auto;
+}
+
+#gallery-content {
+    background-color: #333;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#gallery-header {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#gallery-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 10px;
+}
+
+.skin-item {
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+.skin-item:hover {
+    transform: scale(1.05);
+}
+
+.skin-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #555;
+}
+
+.skin-name {
+    color: white;
+    margin-top: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@keyframes rainbow {
+  0% { color: red; }
+  14% { color: orange; }
+  28% { color: yellow; }
+  42% { color: green; }
+  57% { color: blue; }
+  71% { color: indigo; }
+  85% { color: violet; }
+  100% { color: red; }
+}
+
+.rainbow-text {
+  font-weight: bold;
+  text-decoration: none;
+  animation: rainbow 1s infinite linear;
+}

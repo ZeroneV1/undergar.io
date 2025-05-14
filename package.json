@@ -1,0 +1,20 @@
+{
+  "name": "MKSERV",
+  "version": "1.6.2",
+  "description": "MK Agario Private server",
+  "author": "Epic From MK",
+  "homepage": "http://mk-agario.glitch.me",
+  "main": "src/index.js",
+  "dependencies": {
+    "ws": "2.0.0",
+    "express": "latest",
+    "discord.js": "latest",
+    "figlet": "latest",
+    "finalhandler": "^1.1.1",
+    "serve-static": "^1.13.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "cd src && node index.js"
+  }
+}
